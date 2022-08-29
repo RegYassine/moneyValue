@@ -40,8 +40,8 @@
         </el-row>
 
         <el-form-item>
-            <el-button type="primary" @click="submitForm(ruleFormRef)">Créer cette paire</el-button>
-            <el-button @click="resetForm(ruleFormRef)">Réinitialiser</el-button>
+            <el-button type="primary" @click="submitForm(ruleFormRef)">Create pair</el-button>
+            <el-button @click="resetForm(ruleFormRef)">Reset</el-button>
         </el-form-item>
   </el-form>
 </template>
@@ -73,7 +73,7 @@ const submitForm = (formEl) => {
 
                 ElNotification({
                     title: 'Error',
-                    message: 'Les 2 devises ne peuvent pas être identique',
+                    message: 'The 2 currencies are not the same',
                     type: 'error',
                     duration: 3500
                 })
@@ -85,6 +85,7 @@ const submitForm = (formEl) => {
                 currency_to_id: state.currencyToId,
                 rate: state.rate
             }
+
 
             axios.post("http://127.0.0.1:8000/api/pairs/", pair)
             .then(response => {
@@ -125,7 +126,7 @@ onMounted(() => {
         state.options.push(...response.data.data)
         state.loaded = true
     }) 
-
+    .catch( error => console.log( 'error: ' + error ) ); 
 })
 
 </script>

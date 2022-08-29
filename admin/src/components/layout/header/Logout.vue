@@ -1,7 +1,7 @@
 <template>
     <el-popconfirm
-        confirm-button-text="Oui"
-        cancel-button-text="Non"
+        confirm-button-text="Yes"
+        cancel-button-text="No"
         title="Are you sure you want to disconnect ?"
         @confirm="confirmEvent"
         @cancel="cancelEvent"
